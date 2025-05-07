@@ -7,4 +7,5 @@ public class Usuario {
     private String senha;
     private String endereco;
     private String telefone;
+    
 }
