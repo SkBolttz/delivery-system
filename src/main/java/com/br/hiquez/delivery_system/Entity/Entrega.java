@@ -1,7 +1,6 @@
 package com.br.hiquez.delivery_system.Entity;
 
 import java.time.LocalDateTime;
-
 import com.br.hiquez.delivery_system.Enum.StatusPedido;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

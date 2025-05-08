@@ -1,10 +1,10 @@
 package com.br.hiquez.delivery_system.Entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
@@ -23,7 +23,7 @@ import lombok.ToString;
 @ToString
 @Entity
 @Table(name = "tb_item_entrega")
-public class ProdutoEntrega {
+public class PedidoEntrega {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,10 +32,10 @@ public class ProdutoEntrega {
     private int quantidade;
     @NotNull
     @ManyToOne
-    @Column(name = "entrega_id")
-    private Entrega entrega;
+    @JoinColumn(name = "pedido_id")
+    private Pedido pedido;
     @NotNull
     @ManyToOne
-    @Column(name = "produto_id")
+    @JoinColumn(name = "produto_id")
     private Produto produto;
 }
