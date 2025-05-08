@@ -20,22 +20,18 @@ import lombok.ToString;
 @EqualsAndHashCode(of = "id")
 @ToString
 @Entity
-@Table(name = "tb_endereco")
-public class Endereco {
+@Table(name = "tb_produto")
+public class Produto {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @NotBlank
-    private String logradouro;
-    private String numero;
-    private String complemento;
+    private String nome;
     @NotBlank
-    private String bairro;
+    private String descricao;
     @NotBlank
-    private String cidade;
+    private double valor;
     @NotBlank
-    private String estado;
-    @NotBlank
-    private String cep;
+    private int quantidade;
 }

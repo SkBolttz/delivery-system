@@ -1,11 +1,13 @@
 package com.br.hiquez.delivery_system.Entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -20,22 +22,20 @@ import lombok.ToString;
 @EqualsAndHashCode(of = "id")
 @ToString
 @Entity
-@Table(name = "tb_endereco")
-public class Endereco {
+@Table(name = "tb_item_entrega")
+public class ProdutoEntrega {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @NotBlank
-    private String logradouro;
-    private String numero;
-    private String complemento;
-    @NotBlank
-    private String bairro;
-    @NotBlank
-    private String cidade;
-    @NotBlank
-    private String estado;
-    @NotBlank
-    private String cep;
+    @NotNull
+    private int quantidade;
+    @NotNull
+    @ManyToOne
+    @Column(name = "entrega_id")
+    private Entrega entrega;
+    @NotNull
+    @ManyToOne
+    @Column(name = "produto_id")
+    private Produto produto;
 }

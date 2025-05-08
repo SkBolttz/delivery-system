@@ -1,19 +1,30 @@
 package com.br.hiquez.delivery_system.Entity;
 
+import java.util.List;
 import com.br.hiquez.delivery_system.Enum.TipoUsuario;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
+@ToString
 @Entity
 @Table(name = "tb_cliente")
 public class Cliente {
@@ -30,8 +41,8 @@ public class Cliente {
     @NotBlank
     private String telefone;
     @NotNull
-    @OneToOne(cascade = CascadeType.ALL)
-    private Endereco endereco;
+    @OneToMany
+    private List<Endereco> endereco;
     @NotNull
     @Enumerated(EnumType.STRING)
     private TipoUsuario tipo;
